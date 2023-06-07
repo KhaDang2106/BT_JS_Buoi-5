@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BT JS Buổi 5</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Nav pills -->
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="pill" href="#ex1">Bài 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#ex2">Bài 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#ex3">Bài 3</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#ex4">Bài 4</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane container active mt-2 py-2" id="ex1">
+          <h3>QUẢN LÝ TUYỂN SINH</h3>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <p>Điểm chuẩn</p>
+                <input
+                  id="benchMark"
+                  class="form-control w-50"
+                  placeholder="Nhập vào điểm chuẩn"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <p>Điểm môn thứ nhất</p>
+                <input
+                  id="firstMark"
+                  class="form-control"
+                  placeholder="Nhập điểm môn thứ 1"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <p>Điểm môn thứ hai</p>
+                <input
+                  id="secondMark"
+                  class="form-control"
+                  placeholder="Nhập điểm môn thứ 2"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <p>Điểm môn thứ ba</p>
+                <input
+                  id="thirdMark"
+                  class="form-control"
+                  placeholder="Nhập điểm môn thứ 3"
+                />
+              </div>
+            </div>
+            <div class="col-12">
+              <fieldset class="form-group">
+                <legend>Điểm ưu tiên</legend>
+                <div class="d-flex">
+                  <div class="w-100">
+                    <p>Theo khu vực</p>
+                    <select id="" class="form-control">
+                      <option>Chọn khu vực</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
+                  <div class="w-100">
+                    <p>Theo đối tượng</p>
+                    <select id="" class="form-control">
+                      <option>Chọn đối tượng</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="btnEx1">Xem kết quả</button>
+          <div class="alert alert-primary mt-2" id="ex1Result">
+            Kết quả: <span></span>
+          </div>
+        </div>
+        <div class="tab-pane container fade mt-2 py-2" id="ex2">
+          <h3>TÍNH TIỀN ĐIỆN</h3>
+          <div class="form-group">
+            <p>Họ tên</p>
+            <input
+              class="form-control w-25"
+              id="fullNameEx2"
+              placeholder="Vui lòng nhập họ và tên"
+            />
+          </div>
+          <div class="form-group">
+            <p>Số Kw điện</p>
+            <input
+              class="form-control w-25"
+              id="Kw"
+              placeholder="Nhập số Kw điện"
+            />
+          </div>
+          <button class="btn btn-warning" id="btnEx2">Tính tiền điện</button>
+          <div class="alert alert-warning mt-2" id="ex2Result">
+            Kết quả: <span></span>
+          </div>
+        </div>
+        <div class="tab-pane container fade mt-2 py-2" id="ex3">
+          <h3>TÍNH THUẾ THU NHẬP CÁ NHÂN</h3>
+          <div class="form-group">
+            <p>Họ tên</p>
+            <input
+              class="form-control w-25"
+              id="fullNameEx3"
+              placeholder="Vui lòng nhập họ và tên"
+            />
+          </div>
+          <div class="row form-group">
+            <div class="col-6">
+              <p>Tổng thu nhập năm</p>
+              <input
+                class="form-control"
+                id=""
+                placeholder="Nhập tổng thu nhập của năm"
+              />
+            </div>
+            <div class="col-6">
+              <p>Số người phụ thuộc</p>
+              <input
+                class="form-control"
+                id=""
+                placeholder="Nhập số người phụ thuộc"
+              />
+            </div>
+          </div>
+          <button class="btn btn-success">Tính tiền thuế</button>
+          <div class="alert alert-success mt-2" id="ex3Result">
+            Kết quả: <span></span>
+          </div>
+        </div>
+        <div class="tab-pane container fade mt-2 py-2" id="ex4">
+          <h3>TÍNH TIỀN CÁP</h3>
+          <div class="form-group">
+            <p>Loại khách hàng</p>
+            <select
+              id="customerType"
+              class="form-control w-25"
+              onchange="only4Business()"
+            >
+              <option>Chọn loại khách hàng</option>
+              <option value="Nhà dân">Nhà dân</option>
+              <option value="Doanh nghiệp">Doanh nghiệp</option>
+            </select>
+          </div>
+          <div class="row">
+            <div id="col6_1" class="col-6 form-group">
+              <p>Mã khách hàng</p>
+              <input
+                class="form-control"
+                id="customerID"
+                placeholder="Nhập mã khách hàng"
+              />
+            </div>
+            <div id="col6_2" class="col-6 form-group">
+              <p>Số kênh cao cấp</p>
+              <input
+                class="form-control"
+                id="premiumChannel"
+                placeholder="Nhập số kênh cao cấp"
+              />
+            </div>
+            <div id="col4_1" class="col-4 form-group">
+              <p>Số kết nối</p>
+              <input
+                class="form-control"
+                id="connection"
+                placeholder="Nhập số kết nối"
+              />
+            </div>
+          </div>
+          <button class="btn btn-danger">Tính tiền cáp</button>
+          <div class="alert alert-danger mt-2" id="ex4Result">
+            Kết quả: <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- MAIN JS -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>

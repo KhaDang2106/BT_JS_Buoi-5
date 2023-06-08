@@ -119,17 +119,23 @@ function taxCalc() {
   //output: tiền thuế (number), kết quả (string)
   var ex3Result = '';
   //progress:
-  var taxableIncome =
-    annualIncome - TAXEXEMPTION - dependent * DEPENDENTDEDUCTION;
-  taxCheckOut(taxableIncome);
-  //in ra giao diện phần kết quả
-  ex3Result =
-    'Họ tên: ' +
-    fullNameEx3 +
-    '<br>Tiền thuế thu nhập cá nhân: ' +
-    numberFormat.format(taxFee) +
-    'VND';
-  getEle('ex3Result').innerHTML = ex3Result;
+  if (dependent >= 0) {
+    var taxableIncome =
+      annualIncome - TAXEXEMPTION - dependent * DEPENDENTDEDUCTION;
+    taxCheckOut(taxableIncome);
+    //in ra giao diện phần kết quả
+    ex3Result =
+      'Họ tên: ' +
+      fullNameEx3 +
+      '<br>Tiền thuế thu nhập cá nhân: ' +
+      numberFormat.format(taxFee) +
+      'VND';
+    getEle('ex3Result').innerHTML = ex3Result;
+  } else {
+    alert('Số người phụ thuộc không hợp lệ!');
+    getEle('ex3Result').innerHTML = 'Vui lòng nhập lại Số người phụ thuộc!';
+  }
+
   getEle('ex3Result').style.display = 'block';
 }
 

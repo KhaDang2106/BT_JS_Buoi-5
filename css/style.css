@@ -1,18 +1,6 @@
+/* GLOBAL */
 p {
   margin: 0;
-}
-fieldset {
-  padding: revert;
-  border: revert;
-}
-.d-flex {
-  gap: 10px;
-}
-legend {
-  font-size: 1rem;
-  width: revert;
-  margin: revert;
-  padding: revert;
 }
 .nav-pills {
   margin-top: 5px;
@@ -44,4 +32,57 @@ legend {
 #ex3Result,
 #ex4Result {
   display: none;
+}
+.collapse_btn {
+  font-size: 15px;
+}
+.card {
+  border: none;
+}
+.card .card-header {
+  border: none;
+  background-color: revert;
+  padding: revert;
+}
+
+.card-header .card-link {
+  color: #212529;
+  transition: all 0.4s;
+}
+.card-body {
+  padding: 0;
+}
+.card-body ul {
+  margin: 0;
+}
+
+/* Bài 1 */
+#ex1 .table {
+  table-layout: fixed;
+}
+#ex1 fieldset {
+  padding: revert;
+  border: revert;
+}
+#ex1 .d-flex {
+  gap: 10px;
+}
+#ex1 legend {
+  font-size: 1rem;
+  width: revert;
+  margin: revert;
+  padding: revert;
+}
+
+/* Bài 2 */
+.card_ex2 .card-header .card-link {
+  font-weight: bold;
+}
+.card_ex2 .card-header .card-link:hover {
+  color: #ffc107;
+}
+
+/* Bài 4 */
+.card_ex3 .card-header .card-link:hover {
+  color: #dc3545;
 }

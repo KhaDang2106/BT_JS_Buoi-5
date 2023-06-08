@@ -118,6 +118,43 @@
             </div>
           </div>
           <div class="form-group">
+            <button
+              data-toggle="collapse"
+              data-target="#priority-table"
+              class="btn btn-primary collapse_btn"
+            >
+              Chi tiết điểm ưu tiên
+            </button>
+            <div id="priority-table" class="collapse">
+              <table class="table table-bordered text-center mt-1">
+                <thead class="thead-dark">
+                  <tr>
+                    <th colspan="3">Khu vực</th>
+                    <th colspan="3">Đối tượng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0.5</td>
+                    <td>2.5</td>
+                    <td>1.5</td>
+                    <td>1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="form-group">
             <button class="btn btn-primary" id="btnEx1">Xem kết quả</button>
           </div>
           <div class="alert alert-primary mt-2" id="ex1Result"></div>
@@ -139,6 +176,26 @@
               id="kw"
               placeholder="Nhập số Kw điện"
             />
+          </div>
+          <div class="form-group">
+            <div class="card card_ex2">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#ex2Collapse">
+                  Quy tắc tính tiền điện
+                </a>
+              </div>
+              <div id="ex2Collapse" class="collapse">
+                <div class="card-body pt-1">
+                  <ul>
+                    <li>50kw đầu: 500d/kw</li>
+                    <li>50kw kế: 650d/kw</li>
+                    <li>100kw kế: 850d/kw</li>
+                    <li>150kw kế: 1,100d/kw</li>
+                    <li>Còn lại: 1,300d/kw</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <button class="btn btn-warning" id="btnEx2">Tính tiền điện</button>
@@ -174,6 +231,55 @@
                 id="dependent"
                 placeholder="Nhập số người phụ thuộc"
               />
+            </div>
+          </div>
+          <div class="form-group">
+            <button
+              data-toggle="collapse"
+              data-target="#ex2Table"
+              class="btn btn-success collapse_btn"
+            >
+              Bảng: Biểu thuế luỹ tiến từng phần
+            </button>
+            <div id="ex2Table" class="collapse">
+              <table class="table table-bordered text-center mt-1">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Thu nhập chịu thuế(triệu)</th>
+                    <th>Thuế suất(%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Đến 60</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>Trên 60 đến 120</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>Trên 120 đến 210</td>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <td>Trên 210 đến 384</td>
+                    <td>20</td>
+                  </tr>
+                  <tr>
+                    <td>Trên 384 đến 624</td>
+                    <td>25</td>
+                  </tr>
+                  <tr>
+                    <td>Trên 624 đến 960</td>
+                    <td>30</td>
+                  </tr>
+                  <tr>
+                    <td>Trên 960</td>
+                    <td>35</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
           <div class="form-group">
@@ -221,6 +327,53 @@
                 id="connection"
                 placeholder="Nhập số kết nối"
               />
+            </div>
+          </div>
+          <div class="form-group">
+            <p style="font-weight: bold">Các mức giá tính tiền cáp</p>
+            <div class="card card_ex3 px-4 py-2">
+              <div class="card-header">
+                <a
+                  class="card-link"
+                  data-toggle="collapse"
+                  href="#collapsePersonal"
+                >
+                  Nhà dân
+                </a>
+              </div>
+              <div id="collapsePersonal" class="collapse">
+                <div class="card-body">
+                  <ul>
+                    <li>Phí xử lý hóa đơn: $4.5</li>
+                    <li>Phí dịch vụ cơ bản: $20.5</li>
+                    <li>Thuê kênh cao cấp: $7.5 / kênh</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card_ex3 px-4">
+              <div class="card-header">
+                <a
+                  class="collapsed card-link"
+                  data-toggle="collapse"
+                  href="#collapseCorporate"
+                >
+                  Doanh nghiệp
+                </a>
+              </div>
+              <div id="collapseCorporate" class="collapse">
+                <div class="card-body">
+                  <ul>
+                    <li>Phí xử lý hóa đơn: $15</li>
+                    <li>
+                      Phí dịch vụ cơ bản: $75 cho tổng 10 kết nối đầu, mỗi kết
+                      nối thêm $5 / kết nối
+                    </li>
+                    <li>Thuê kênh cao cấp: $50 / kênh</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group">

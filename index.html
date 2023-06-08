@@ -16,6 +16,14 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="./css/style.css" />
@@ -89,7 +97,7 @@
                 <div class="d-flex">
                   <div class="w-100">
                     <p>Theo khu vực</p>
-                    <select id="" class="form-control">
+                    <select id="priorityRegion" class="form-control">
                       <option>Chọn khu vực</option>
                       <option value="A">A</option>
                       <option value="B">B</option>
@@ -98,7 +106,7 @@
                   </div>
                   <div class="w-100">
                     <p>Theo đối tượng</p>
-                    <select id="" class="form-control">
+                    <select id="priorityCandidate" class="form-control">
                       <option>Chọn đối tượng</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -109,10 +117,10 @@
               </fieldset>
             </div>
           </div>
-          <button class="btn btn-primary" id="btnEx1">Xem kết quả</button>
-          <div class="alert alert-primary mt-2" id="ex1Result">
-            Kết quả: <span></span>
+          <div class="form-group">
+            <button class="btn btn-primary" id="btnEx1">Xem kết quả</button>
           </div>
+          <div class="alert alert-primary mt-2" id="ex1Result"></div>
         </div>
         <div class="tab-pane container fade mt-2 py-2" id="ex2">
           <h3>TÍNH TIỀN ĐIỆN</h3>
@@ -128,14 +136,14 @@
             <p>Số Kw điện</p>
             <input
               class="form-control w-25"
-              id="Kw"
+              id="kw"
               placeholder="Nhập số Kw điện"
             />
           </div>
-          <button class="btn btn-warning" id="btnEx2">Tính tiền điện</button>
-          <div class="alert alert-warning mt-2" id="ex2Result">
-            Kết quả: <span></span>
+          <div class="form-group">
+            <button class="btn btn-warning" id="btnEx2">Tính tiền điện</button>
           </div>
+          <div class="alert alert-warning mt-2" id="ex2Result"></div>
         </div>
         <div class="tab-pane container fade mt-2 py-2" id="ex3">
           <h3>TÍNH THUẾ THU NHẬP CÁ NHÂN</h3>
@@ -152,7 +160,7 @@
               <p>Tổng thu nhập năm</p>
               <input
                 class="form-control"
-                id=""
+                id="annualIncome"
                 placeholder="Nhập tổng thu nhập của năm"
               />
             </div>
@@ -160,15 +168,17 @@
               <p>Số người phụ thuộc</p>
               <input
                 class="form-control"
-                id=""
+                id="dependent"
                 placeholder="Nhập số người phụ thuộc"
               />
             </div>
           </div>
-          <button class="btn btn-success">Tính tiền thuế</button>
-          <div class="alert alert-success mt-2" id="ex3Result">
-            Kết quả: <span></span>
+          <div class="form-group">
+            <button class="btn btn-success" onclick="taxCalc()">
+              Tính tiền thuế
+            </button>
           </div>
+          <div class="alert alert-success mt-2" id="ex3Result"></div>
         </div>
         <div class="tab-pane container fade mt-2 py-2" id="ex4">
           <h3>TÍNH TIỀN CÁP</h3>
@@ -177,11 +187,11 @@
             <select
               id="customerType"
               class="form-control w-25"
-              onchange="only4Business()"
+              onchange="only4Corporate()"
             >
               <option>Chọn loại khách hàng</option>
-              <option value="Nhà dân">Nhà dân</option>
-              <option value="Doanh nghiệp">Doanh nghiệp</option>
+              <option id="personal" value="Nhà dân">Nhà dân</option>
+              <option id="corporate" value="Doanh nghiệp">Doanh nghiệp</option>
             </select>
           </div>
           <div class="row">
@@ -210,10 +220,12 @@
               />
             </div>
           </div>
-          <button class="btn btn-danger">Tính tiền cáp</button>
-          <div class="alert alert-danger mt-2" id="ex4Result">
-            Kết quả: <span></span>
+          <div class="form-group">
+            <button class="btn btn-danger" onclick="cableCalc()">
+              Tính tiền cáp
+            </button>
           </div>
+          <div class="alert alert-danger mt-2" id="ex4Result"></div>
         </div>
       </div>
     </div>
@@ -235,6 +247,8 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- METHOD JS -->
+    <script src="./js/method.js"></script>
     <!-- MAIN JS -->
     <script src="./js/main.js"></script>
   </body>

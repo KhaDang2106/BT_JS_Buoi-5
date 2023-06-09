@@ -6,6 +6,11 @@ function getEle(id) {
 function colChange(id, class1, class2) {
   document.getElementById(id).classList.replace(class1, class2);
 }
+//hàm in kết quả ra giao diện
+function printResult(id, variable) {
+  getEle(id).innerHTML = variable;
+  getEle(id).style.display = 'block';
+}
 
 //Bài 1: Quản lý tuyển sinh
 //hàm điểm cộng khu vực ưu tiên
@@ -93,9 +98,6 @@ function chargingElec(
       chargingFee_3(200, elecFee_3) +
       chargingFee_4(350, elecFee_4) +
       chargingFee_5(kw, elecFee_5);
-  } else {
-    alert('Số Kw điện không hợp lệ! Vui lòng nhập lại!');
-    elecBill = 0;
   }
 }
 
@@ -116,9 +118,6 @@ function taxCheckOut(taxableIncome) {
     taxFee = taxableIncome * TAXRATE_6;
   } else if (960e6 < taxableIncome) {
     taxFee = taxableIncome * TAXRATE_7;
-  } else {
-    alert('Số tiền thu nhập không hợp lệ! Vui lòng nhập lại!');
-    taxFee = 0;
   }
 }
 
@@ -126,12 +125,6 @@ function taxCheckOut(taxableIncome) {
 //hàm tính phí dịch vụ cho DN
 function corpServiceFee(connection) {
   var corpServiceFee = 0;
-  // if (connection <= 10) {
-  //   corpServiceFee = CORP_CONNECT_FIRST10;
-  // } else {
-  //   corpServiceFee =
-  //     CORP_CONNECT_FIRST10 + (connection - 10) * CORP_CONNECT_AFTER10TH;
-  // }
   connection <= 10
     ? (corpServiceFee = CORP_CONNECT_FIRST10)
     : (corpServiceFee =

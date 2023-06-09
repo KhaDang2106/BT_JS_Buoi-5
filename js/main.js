@@ -49,20 +49,20 @@ getEle('btnEx1').onclick = function () {
   candidatePlus(priorityCandidate, CANDIDATE_1, CANDIDATE_2, CANDIDATE_3);
   if (firstMark > 0 && secondMark > 0 && thirdMark > 0) {
     totalMark >= benchMark
-      ? (getEle('ex1Result').innerHTML =
+      ? (ex1Result =
           'Tổng điểm: ' +
           totalMark +
           ' - Chúc mừng bạn đã đậu! <i class="fa fa-smile-beam"></i>')
-      : (getEle('ex1Result').innerHTML =
+      : (ex1Result =
           'Tổng điểm: ' +
           totalMark +
           ' - Rất tiếc bạn đã rớt! <i class="fa fa-frown"></i>');
   } else {
-    getEle('ex1Result').innerHTML =
+    ex1Result =
       'Rất tiếc bạn đã rớt vì có môn nhỏ hơn hoặc bằng 0 điểm! <i class="fa fa-frown"></i>';
   }
   //in ra giao diện phần kết quả
-  getEle('ex1Result').style.display = 'block';
+  printResult('ex1Result', ex1Result);
 };
 
 /*
@@ -83,16 +83,27 @@ getEle('btnEx2').onclick = function () {
   //output: tiền điện (number), kết quả (string)
   var ex2Result = '';
   //progress:
-  chargingElec(kw, ELEC_FEE_1, ELEC_FEE_2, ELEC_FEE_3, ELEC_FEE_4, ELEC_FEE_5);
+  if (kw > 0) {
+    chargingElec(
+      kw,
+      ELEC_FEE_1,
+      ELEC_FEE_2,
+      ELEC_FEE_3,
+      ELEC_FEE_4,
+      ELEC_FEE_5
+    );
+    ex2Result =
+      'Họ tên: ' +
+      fullNameEx2 +
+      '<br>Tiền điện: ' +
+      elecBill.toLocaleString() +
+      'VND';
+  } else {
+    alert('Số Kw điện không hợp lệ!');
+    ex2Result = 'Vui lòng nhập lại số Kw điện!';
+  }
   //in ra giao diện phần kết quả
-  ex2Result =
-    'Họ tên: ' +
-    fullNameEx2 +
-    '<br>Tiền điện: ' +
-    elecBill.toLocaleString() +
-    'VND';
-  getEle('ex2Result').innerHTML = ex2Result;
-  getEle('ex2Result').style.display = 'block';
+  printResult('ex2Result', ex2Result);
 };
 
 /*
@@ -122,21 +133,24 @@ function taxCalc() {
   if (dependent >= 0) {
     var taxableIncome =
       annualIncome - TAXEXEMPTION - dependent * DEPENDENTDEDUCTION;
-    taxCheckOut(taxableIncome);
-    //in ra giao diện phần kết quả
-    ex3Result =
-      'Họ tên: ' +
-      fullNameEx3 +
-      '<br>Tiền thuế thu nhập cá nhân: ' +
-      numberFormat.format(taxFee) +
-      'VND';
-    getEle('ex3Result').innerHTML = ex3Result;
+    if (taxableIncome > 0) {
+      taxCheckOut(taxableIncome);
+      ex3Result =
+        'Họ tên: ' +
+        fullNameEx3 +
+        '<br>Tiền thuế thu nhập cá nhân: ' +
+        numberFormat.format(taxFee) +
+        'VND';
+    } else {
+      alert('Số tiền thu nhập không hợp lệ!');
+      ex3Result = 'Vui lòng nhập lại số tiền thu nhập!';
+    }
   } else {
     alert('Số người phụ thuộc không hợp lệ!');
-    getEle('ex3Result').innerHTML = 'Vui lòng nhập lại Số người phụ thuộc!';
+    ex3Result = 'Vui lòng nhập lại số người phụ thuộc!';
   }
-
-  getEle('ex3Result').style.display = 'block';
+  //in ra giao diện phần kết quả
+  printResult('ex3Result', ex3Result);
 }
 
 /*
@@ -170,6 +184,13 @@ function cableCalc() {
         PERSONAL_CHANNEL_FEE,
         premiumChannel
       );
+      ex4Result =
+        'Loại khách hàng: ' +
+        customerType +
+        '<br> Mã khách hàng: ' +
+        customerID +
+        '<br> Tiền cáp: ' +
+        numberFormatUS.format(cableFee);
       break;
     case 'Doanh nghiệp':
       cableCheckOut(
@@ -178,19 +199,18 @@ function cableCalc() {
         CORP_CHANNEL_FEE,
         premiumChannel
       );
+      ex4Result =
+        'Loại khách hàng: ' +
+        customerType +
+        '<br> Mã khách hàng: ' +
+        customerID +
+        '<br> Tiền cáp: ' +
+        numberFormatUS.format(cableFee);
       break;
     default:
-      alert('Vui lòng chọn loại khách hàng!');
-      cableFee = 0;
+      alert('Không thể tính vì chưa xác định được loại khách hàng!');
+      ex4Result = 'Vui lòng chọn loại khách hàng!';
   }
   //in ra giao diện phần kết quả
-  ex4Result =
-    'Loại khách hàng: ' +
-    customerType +
-    '<br> Mã khách hàng: ' +
-    customerID +
-    '<br> Tiền cáp: ' +
-    numberFormatUS.format(cableFee);
-  getEle('ex4Result').innerHTML = ex4Result;
-  getEle('ex4Result').style.display = 'block';
+  printResult('ex4Result', ex4Result);
 }

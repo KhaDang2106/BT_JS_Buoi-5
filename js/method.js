@@ -7,8 +7,9 @@ function colChange(id, class1, class2) {
   document.getElementById(id).classList.replace(class1, class2);
 }
 //hàm in kết quả ra giao diện
-function printResult(id, variable) {
-  getEle(id).innerHTML = variable;
+function printResult(id, sentence, messAlert = null) {
+  if (messAlert) alert(messAlert);
+  getEle(id).innerHTML = sentence;
   getEle(id).style.display = 'block';
 }
 

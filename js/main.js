@@ -44,10 +44,10 @@ getEle('btnEx1').onclick = function () {
   //output: kết quả (string)
   var ex1Result = '';
   //progress:
-  totalMark = firstMark + secondMark + thirdMark;
-  regionPlus(priorityRegion, ZONE_A, ZONE_B, ZONE_C);
-  candidatePlus(priorityCandidate, CANDIDATE_1, CANDIDATE_2, CANDIDATE_3);
   if (firstMark > 0 && secondMark > 0 && thirdMark > 0) {
+    totalMark = firstMark + secondMark + thirdMark;
+    regionPlus(priorityRegion, ZONE_A, ZONE_B, ZONE_C);
+    candidatePlus(priorityCandidate, CANDIDATE_1, CANDIDATE_2, CANDIDATE_3);
     totalMark >= benchMark
       ? (ex1Result =
           'Tổng điểm: ' +
@@ -98,12 +98,16 @@ getEle('btnEx2').onclick = function () {
       '<br>Tiền điện: ' +
       elecBill.toLocaleString() +
       'VND';
+    //in ra giao diện phần kết quả
+    printResult('ex2Result', ex2Result);
   } else {
-    alert('Số Kw điện không hợp lệ!');
-    ex2Result = 'Vui lòng nhập lại số Kw điện!';
+    //in ra giao diện phần kết quả
+    printResult(
+      'ex2Result',
+      'Vui lòng nhập lại số Kw điện!',
+      'Số Kw điện không hợp lệ!'
+    );
   }
-  //in ra giao diện phần kết quả
-  printResult('ex2Result', ex2Result);
 };
 
 /*
@@ -141,16 +145,24 @@ function taxCalc() {
         '<br>Tiền thuế thu nhập cá nhân: ' +
         numberFormat.format(taxFee) +
         'VND';
+      //in ra giao diện phần kết quả
+      printResult('ex3Result', ex3Result);
     } else {
-      alert('Số tiền thu nhập không hợp lệ!');
-      ex3Result = 'Vui lòng nhập lại số tiền thu nhập!';
+      //in ra giao diện phần kết quả
+      printResult(
+        'ex3Result',
+        'Vui lòng nhập lại số tiền thu nhập!',
+        'Số tiền thu nhập không hợp lệ!'
+      );
     }
   } else {
-    alert('Số người phụ thuộc không hợp lệ!');
-    ex3Result = 'Vui lòng nhập lại số người phụ thuộc!';
+    //in ra giao diện phần kết quả
+    printResult(
+      'ex3Result',
+      'Vui lòng nhập lại số người phụ thuộc!',
+      'Số người phụ thuộc không hợp lệ!'
+    );
   }
-  //in ra giao diện phần kết quả
-  printResult('ex3Result', ex3Result);
 }
 
 /*
@@ -191,6 +203,8 @@ function cableCalc() {
         customerID +
         '<br> Tiền cáp: ' +
         numberFormatUS.format(cableFee);
+      //in ra giao diện phần kết quả
+      printResult('ex4Result', ex4Result);
       break;
     case 'Doanh nghiệp':
       cableCheckOut(
@@ -206,11 +220,15 @@ function cableCalc() {
         customerID +
         '<br> Tiền cáp: ' +
         numberFormatUS.format(cableFee);
+      //in ra giao diện phần kết quả
+      printResult('ex4Result', ex4Result);
       break;
     default:
-      alert('Không thể tính vì chưa xác định được loại khách hàng!');
-      ex4Result = 'Vui lòng chọn loại khách hàng!';
+      //in ra giao diện phần kết quả
+      printResult(
+        'ex4Result',
+        'Vui lòng chọn loại khách hàng!',
+        'Không thể tính vì chưa xác định được loại khách hàng!'
+      );
   }
-  //in ra giao diện phần kết quả
-  printResult('ex4Result', ex4Result);
 }
